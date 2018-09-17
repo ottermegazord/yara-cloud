@@ -1,0 +1,5 @@
+a sky
+b pattern
+c thick dark
+d thick white
+e veil
