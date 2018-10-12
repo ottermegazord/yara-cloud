@@ -9,7 +9,7 @@
 *
 *  Designation : Data Scientist
 *
-*  Description : Sample SkyWeather
+*  Description : Classification of stitched sky images using Bayesian inference
 *
 *
 ***************************************************************************************
@@ -25,15 +25,22 @@ import skyweatherCloud
 
 """ Parameters """
 
-file_name = "images/img_14.jpg"
+file1 = "images/img1.png"
+file2 = "images/img2.png"
+file3 = "images/img3.png"
+file4 = "images/img4.png"
+
+
+ls_of_image = [file1, file2, file3, file4]
+
 model_file = "model/yaraCloudNet_v1.pb"
 label_file = "model/yaraCloudNet_v1.txt"
 
 
 """ Create Skyweather Cloud Object"""
 
-cloud = skyweatherCloud.Cloud(file_name, model_file, label_file)
+clouds = skyweatherCloud.NormalizedCloud(ls_of_image, model_file, label_file)
 
-""" Print cloud classification and % """
+""" Calculate cloud coverage"""
 
-print(cloud.pred())
+print(clouds.cloud_coverage())
