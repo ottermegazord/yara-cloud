@@ -41,6 +41,10 @@ label_file = "model/yaraCloudNet_v1.txt"
 
 clouds = skyweatherCloud.NormalizedCloud(ls_of_image, model_file, label_file)
 
+""" Prediction """
+
+print(clouds.pred())
+
 """ Calculate cloud coverage"""
 
 print(clouds.cloud_coverage())

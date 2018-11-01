@@ -1,0 +1,20 @@
+item {
+  id: 1
+  name: 'A-sky'
+}
+item {
+  id: 2
+  name: 'B-pattern'
+}
+item {
+  id: 3
+  name: 'C-thick-dark'
+}
+item {
+  id: 4
+  name: 'D-thick-white'
+}
+item {
+  id: 5
+  name: 'E-veil'
+}

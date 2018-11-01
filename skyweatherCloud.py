@@ -205,9 +205,6 @@ class NormalizedCloud():
 
             categories[i] = cat[0]
 
-            # for x in range(0, len(predictions)-1):
-            #     if cat[0] == predictions[i][0][0]:
-            #         print(cat[0])
 
         for idx, cat in categories.items():
 
@@ -223,7 +220,6 @@ class NormalizedCloud():
             stitchPredictions[cat] = prob
 
         return(stitchPredictions)
-
 
     def cloud_coverage(self):
         """

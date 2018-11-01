@@ -1,0 +1,38 @@
+
+python create_tfrecord.py --tfrecord_filename=swimcat --dataset_dir=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images
+
+python create_pet_tf_record.py \
+    --label_map_path=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/swimcat/swimcat_label_map.pbtxt \
+    --data_dir=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/swimcat \
+    --output_dir=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/data
+
+
+
+bazel-bin/inception/build_image_data \
+  --train_directory="${TRAIN_DIR}" \
+  --validation_directory="${VALIDATION_DIR}" \
+  --output_directory="${OUTPUT_DIRECTORY}" \
+  --labels_file="${LABELS_FILE}" \
+  --train_shards=128 \
+  --validation_shards=24 \
+  --num_threads=8
+
+
+OUTPUT_DIRECTORY=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/data
+
+python build_image_data.py --train_directory=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/train --output_directory=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/data  \
+--validation_directory=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/validation --labels_file=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/labels.txt   \
+--train_shards=1 --validation_shards=1 --num_threads=1
+
+python train.py --logtostderr --train_dir=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/images/train --pipeline_config_path=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config
+
+
+
+python model_main.py \
+    --pipeline_config_path=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/ssd_mobilenet_v1_fpn_shared_box_predictor_640x640_coco14_sync.config \
+    --model_dir=/home/ottermegazord/PycharmProjects/tensorflow/models/research/object_detection/skyWeather/models \
+    --num_train_steps=10000 \
+    --num_eval_steps=10000 \
+    --alsologtostderr
+
+

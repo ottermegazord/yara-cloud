@@ -35,6 +35,31 @@ label_file = "model/yaraCloudNet_v1.txt"
 
 ## Running the program
 
+Create TF Record files from data set
+
+```
+python3 build_image_data.py --train_directory=data/train --output_directory=data  \
+--validation_directory=data/validation --labels_file=labels.txt  \
+--train_shards=2 --validation_shards=2 --num_threads=1
+
+```
+
+Add nets to your Python path
+
+```
+export PYTHONPATH="$PYTHONPATH:/home/ottermegazord/PycharmProjects/yara-cloud/object_detection/models/nets"
+
+
+```
+
+Train model
+
+```
+python3 object_detection/legacy/train.py --train_dir='OUTPUT TO YOUR TRAINED MODEL' \
+--pipeline_config_path='PATH TO YOUR CONFIG FILE'
+
+```
+
 Create skyweatherCloud object
 
 ```
