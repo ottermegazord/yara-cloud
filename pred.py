@@ -26,8 +26,8 @@ import skyweatherCloud
 """ Parameters """
 
 file_name = "images/img_14.jpg"
-model_file = "model/yaraCloudNet_v1.pb"
-label_file = "model/yaraCloudNet_v1.txt"
+model_file = "model/yaraCloudnet_v2.pb"
+label_file = "model/yaraCloudnet_v2.pbtxt"
 
 
 """ Create Skyweather Cloud Object"""
