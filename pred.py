@@ -44,7 +44,7 @@ if model_file == None:
 	print('[ERROR] missing argument --model_file=filename')
 	quit()
 
-if label_file  == None:
+if label_file == None:
 	print('[ERROR] missing argument --label_file=filename')
 	quit()
 
