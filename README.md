@@ -17,6 +17,12 @@ pip3 install tensorflow
 pip3 install opencv-contrib-python
 ```
 
+For Conda
+
+```
+conda env create -f yara-cloud.yaml
+```
+
 ### Installing
 
 Import skyweatherCloud library
