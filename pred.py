@@ -48,9 +48,6 @@ if label_file == None:
 	print('[ERROR] missing argument --label_file=filename')
 	quit()
 
-print(file_name, model_file, label_file)
-quit()
-
 """ Create Skyweather Cloud Object """
 
 cloud = skyweatherCloud.Cloud(file_name, model_file, label_file)
