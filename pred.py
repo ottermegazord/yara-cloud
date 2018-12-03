@@ -20,17 +20,38 @@
 """ Import Libraries """
 
 import skyweatherCloud
+import argparse
 
 ########################
 
 """ Parameters """
 
-file_name = "images/img_14.jpg"
-model_file = "model/yaraCloudnet_v2.pb"
-label_file = "model/yaraCloudnet_v2.pbtxt"
+parser = argparse.ArgumentParser()
+parser.add_argument('--image_file', type=str, help='specify weather image filename')
+parser.add_argument('--model_file', type=str, help='specify weather model filename')
+parser.add_argument('--label_file', type=str, help='specify weather label filename')
+args = parser.parse_args()
 
+file_name = args.image_file
+model_file = args.model_file
+label_file = args.label_file
 
-""" Create Skyweather Cloud Object"""
+if file_name == None:
+	print('[ERROR] missing argument --image_file=filename')
+	quit()
+
+if model_file == None:
+	print('[ERROR] missing argument --model_file=filename')
+	quit()
+
+if label_file  == None:
+	print('[ERROR] missing argument --label_file=filename')
+	quit()
+
+print(file_name, model_file, label_file)
+quit()
+
+""" Create Skyweather Cloud Object """
 
 cloud = skyweatherCloud.Cloud(file_name, model_file, label_file)
 
