@@ -25,12 +25,17 @@ Import skyweatherCloud library
 import skyweatherCloud
 ```
 
-Define paths to image, model (Tensorflow Frozen Graph) and label. Example...
+### Inferencing
+
+Syntax for inferencing weather category of image using the trained model
+```
+python3 pred.py --image_file=filename --model_file=filename --label_file=filename
+```
+
+Provide paths to image, model (Tensorflow Frozen Graph) and label as inputs. For example...
 
 ```
-file_name = "images/img3.png"
-model_file = "model/yaraCloudNet_v1.pb"
-label_file = "model/yaraCloudNet_v1.txt"
+python3 pred.py --image_file=images/img3.png --model_file=model/yaraCloudNet_v1.pb --label_file=model/yaraCloudNet_v1.txt
 ```
 
 ## Running the program
